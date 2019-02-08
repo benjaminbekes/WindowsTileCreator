@@ -1,7 +1,6 @@
 # Windows Tile Creator
-<hr>
 
-An open source <b>Java</b> program for creating custom designed Windows 10 tiles.
+An open source <b>Java</b> program for creating custom designed Windows 10 tiles.<br>
 Good for Windows users who want to improve their StartMenu looks.
 
 <h3>Program restrictions</h3>
@@ -20,11 +19,17 @@ Good for Windows users who want to improve their StartMenu looks.
 </ul>
 <h3>The program preview</h3>
 
-<center><img src="https://github.com/BenSvK/WindowsTileCreator/blob/master/src/source/icon/program_photo.png" alt="The program photo"></center>
+<p align="center">
+  <img src="https://github.com/BenSvK/WindowsTileCreator/blob/master/src/source/icon/program_photo.png" alt="The program photo"><br>
+  <i>The application photo preview</i>
+</p>
 
  <h3>The result can be visible in the Windows Start Menu</h3>
  
-![Windows Start Menu photo](https://github.com/BenSvK/WindowsTileCreator/blob/master/src/source/icon/windows_start_menu_preview.png)
+<p align="center">
+  <img src="https://github.com/BenSvK/WindowsTileCreator/blob/master/src/source/icon/windows_start_menu_preview.png" alt="Windows StartMenu photo"><br>
+  <i>Improved Windows StartMenu photo preview</i>
+</p>
 
 # Apache License 2.0
 ```
