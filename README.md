@@ -15,7 +15,9 @@ Good for Windows users who want to improve their StartMenu looks.
         background tile color, custom user image (70x70 or 150x150) or enables the title of an application on a large
         tile.<br><br>
     <li>Creates the 'Icons' folder inside of the exe file directory with occasional images of the application. This
-        folder is being created only if a user requires an own application image.<br>
+        folder is being created only if a user requires an own application image.<br><br>
+      <li>The program saves its local settings into the <i>%AppData%\WindowsTileCreator</i> folder as save.properties.
+        This feature is smart for quick loading your previous settings.<br>
 </ul>
 <h3>The program preview</h3>
 
