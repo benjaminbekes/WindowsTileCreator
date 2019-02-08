@@ -18,15 +18,20 @@ package source.service;
 
 import com.sun.istack.internal.NotNull;
 import com.sun.istack.internal.Nullable;
-import source.Main;
-import source.util.Utils;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Properties;
+
+import static source.util.Utils.log;
 
 public class PropertiesService {
 
-    private static final String PROPERTIES = Main.class.getResource("save.properties").getPath();
+    private static final String PROPERTIES_FOLDER = System.getenv("APPDATA") + "\\WindowsTileCreator";
+    private static final String PROPERTIES = PROPERTIES_FOLDER + "\\save.properties";
+    private static final String JAR_PROPERTIES = "/source/save.properties";
     private static final String TILE_COLOR = "tile_color";
     private static final String APP_TITLE = "app_title";
     private static final String IMAGE_PATH = "image_path";
@@ -112,18 +117,20 @@ public class PropertiesService {
     }
 
 
-
     /**
      * A universal method to save properties.
      * @param properties A modified properties to save. Should be used properties returned from the {@link #getProperties()} method.
      */
     private static void save(@NotNull Properties properties) {
-        try {
-            FileOutputStream outputStream = new FileOutputStream(PROPERTIES);
+        if (!propertiesExists()) {
+            createAppDataFolder();
+        }
+
+        try (FileOutputStream outputStream = new FileOutputStream(new File(PROPERTIES))) {
             properties.store(outputStream, null);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            Utils.log("Error: Writing changes into a save file failed: " + e);
+            log("Error: Writing changes into a save file failed: " + e);
         }
     }
 
@@ -133,16 +140,43 @@ public class PropertiesService {
      */
     private static Properties getProperties() {
         Properties properties = new Properties();
-        try (InputStream inputStream = new FileInputStream(new File(PROPERTIES))) {
 
-            properties.load(inputStream);
+        if (!propertiesExists()) {
+            createAppDataFolder();
+        }
+
+        try (InputStream in = new FileInputStream(new File(PROPERTIES))) {
+            properties.load(in);
         } catch (IOException e) {
             e.printStackTrace();
-            Utils.log("Error: Reading a save file failed" + e);
+            log("Error: Reading a save file failed" + e);
             return properties;
         }
         return properties;
     }
 
+    private static void createAppDataFolder() {
+        File folder = new File(PROPERTIES_FOLDER);
 
+        if (!folder.exists()) {
+            log("[<b>AppData</b>] folder created");
+            folder.mkdir();
+        }
+
+        try (InputStream in = PropertiesService.class.getResourceAsStream(JAR_PROPERTIES)) {
+
+            Files.copy(in, Paths.get(PROPERTIES), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            log("Error: Program save file was not copied into " + PROPERTIES + "<br>" + e);
+        }
+
+    }
+
+    private static boolean propertiesExists() {
+        File folder = new File(PROPERTIES_FOLDER);
+        File properties = new File(PROPERTIES);
+
+        return folder.exists() && properties.exists();
+
+    }
 }

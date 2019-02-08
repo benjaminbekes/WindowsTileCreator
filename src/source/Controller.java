@@ -117,20 +117,21 @@ public class Controller implements Initializable {
      */
     private double xPos, yPos;
 
-    private String tileColor = PropertiesService.getTileColor();
+    private String tileColor;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Utils.init(console);
         changeBackgroundColor(COLOR_BOX_DEFAULT_COLOR);
         iconPathField.setFocusTraversable(false);
         exePathField.setFocusTraversable(false);
         iconPathField.setEditable(false);
         exePathField.setEditable(false);
         textCheckbox.setSelected(PropertiesService.isAppTitle());
+        tileColor = PropertiesService.getTileColor();
         setCheckboxesDisability(false);
         setPreviewVisibility(false);
         createAuthorText();
-        Utils.init(console);
         initConsole();
         initListeners();
     }
@@ -153,12 +154,12 @@ public class Controller implements Initializable {
                     dirPath = PropertiesService.getImagePath();
                 }
 
-                if (dirPath != null) {
-                    PropertiesService.saveImagePath(dirPath);
-                }
-
                 String path = FileService.getPathFromChooser(dirPath != null && !dirPath.isEmpty() ? dirPath : null);
                 if (path != null) {
+                    dirPath = FileService.getDirPath(path, false);
+                    if (dirPath != null) {
+                        PropertiesService.saveImagePath(dirPath);
+                    }
                     iconPathField.setText(path);
                     previewIcon.setImage(new Image(new File(path).toURI().toString()));
                     Utils.centerImage(previewIcon);
@@ -182,12 +183,12 @@ public class Controller implements Initializable {
                     dirPath = PropertiesService.getExePath();
                 }
 
-                if (dirPath != null) {
-                    PropertiesService.saveExePath(dirPath);
-                }
-
                 String path = FileService.getPathFromChooser(dirPath != null && !dirPath.isEmpty() ? dirPath : null);
                 if (path != null) {
+                    dirPath = FileService.getDirPath(path, false);
+                    if (dirPath != null) {
+                        PropertiesService.saveExePath(dirPath);
+                    }
                     exePathField.setText(path);
                     exeErrorIcon.setVisible(false);
                 }
@@ -409,7 +410,7 @@ public class Controller implements Initializable {
 
     private void openGithubPage() {
         try {
-            java.awt.Desktop.getDesktop().browse(URI.create("www.google.sk"));
+            java.awt.Desktop.getDesktop().browse(URI.create("https://github.com/BenSvK/WindowsTileCreator"));
         } catch (IOException e) {
             e.printStackTrace();
         }
