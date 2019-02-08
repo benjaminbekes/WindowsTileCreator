@@ -1,0 +1,102 @@
+<!--
+ Copyright (C) 2019 Benjamín Bekeš
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Console</title>
+
+</head>
+<body style="background-color: #515151; color: white; font-family: 'Ubuntu', sans-serif;">
+<h2 style="margin: 0;">Instructions:</h2>
+<ul>
+    <li>Choose your .exe file you want to change its looks in the start menu.<br><br>
+    <li>[<b>Optional</b>] Choose your windows tile image. If you don't choose an image, a windows tile will have default
+        app icon. Supported formats: <b>.png, .jpg</b><br><br>
+    <li>If you are not happy with the default background color of a tile, select your own by clicking on the color
+        box.<br><br>
+    <li>Size checkboxes determine what tile sizes should be created. Functional only if you selected your own icon
+        image.<br><br>
+</ul>
+<i>Now you can click on the create button to make your requirements real. :)</i><br><br>
+
+
+<br><br>
+
+
+<h2 style="margin: 0;">What the program does:</h2>
+<i>In this section you can learn more about creation steps.</i>
+
+<table cellspacing="10">
+    <tr>
+        <td>Exe file</td>
+        <td>By this file, the application will know where the components should be saved.</td>
+    </tr>
+
+    <tr>
+        <td>Image file</td>
+        <td>This is a working file and it determines the looks of a tile.</td>
+    </tr>
+
+    <tr>
+        <td>Size<br>checkboxes</td>
+        <td>Determines what kind of tiles will be created. <b>This is necessary only if you select an image path!</b>
+    </tr>
+
+    <tr>
+        <td>Color box</td>
+        <td>By clicking on this box you can choose your own background tile color. Transparency, unfortunately, Windows
+            does not support :(
+        </td>
+    </tr>
+
+    <tr>
+        <td>Restore color</td>
+        <td>A small icon near the <i>color box</i> will restore your selected color to default color.</td>
+    </tr>
+    <tr>
+        <td>Preview</td>
+        <td>Near the <i>Create</i> button you can see a preview of a tile you want to create. This is visible only if
+            you want to set your own icon.
+        </td>
+    </tr>
+    <tr>
+        <td>Create</td>
+        <td>The main button to start making your requirements real.</td>
+    </tr>
+    <tr>
+        <td>Console</td>
+        <td>Every message from this application will be shown here.</td>
+    </tr>
+</table>
+
+<br><br>
+
+<h2 style="margin: 0;">About:</h2>
+<i>This program creates custom Windows 10 tiles. This copyright program has the Apache License 2.0 and was created by BenSvK. The application was
+    intended to open-source usage.</i>
+<h3>Program features:</h3>
+<ul>
+    <li>Creates the 'VisualManifestElements.xml' file inside of an exe file directory with user requirements. Such as
+        background tile color, custom user image (70x70 or 150x150) or enables the title of an application on a large
+        tile.<br><br>
+    <li>Creates the 'Icons' folder inside of the exe file directory with occasional images of the application. This
+        folder is being created only if a user requires an own application image.<br><br>
+</ul>
+
+</body>
+</html>

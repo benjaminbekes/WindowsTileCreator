@@ -1,0 +1,122 @@
+/*
+ * Copyright (C) 2019 Benjamín Bekeš
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.check-box .box {
+    -fx-background-color: #515151;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #515151;
+}
+
+.text-field {
+    -fx-text-fill: white;
+}
+
+#previewText {
+    -fx-effect: dropshadow(two-pass-box, black, 2, 10, 1, 1);
+}
+
+#console .scroll-bar:horizontal .track,
+#console .scroll-bar:vertical .track {
+    -fx-background-color: #515151;
+    -fx-border-color: #515151;
+    -fx-background-radius: 0em;
+    -fx-border-radius: 2em;
+}
+
+#console .scroll-bar:horizontal .thumb,
+#console .scroll-bar:vertical .thumb {
+    -fx-background-color: derive(#515151, 90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+
+}
+
+#console .scroll-bar:horizontal .increment-button,
+#console .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: #515151;
+    -fx-background-radius: 0em;
+    -fx-padding: 0 0 0 0;
+    -fx-border-color: #515151;
+    -fx-border-radius: 0em;
+    visibility: hidden;
+
+}
+
+#console .scroll-bar:vertical .increment-button,
+#console .scroll-bar:vertical .decrement-button {
+
+    -fx-background-color: #515151;
+    -fx-background-radius: 0em;
+    -fx-padding: 0 5 0 0;
+}
+
+#console .scroll-bar .increment-arrow,
+#console .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0 5 0 0;
+}
+
+#shortcut-dialog {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 20, 0, 0, 0);
+}
+
+#color-picker, .controls-pane, .customcolor-controls-background, .color-input-field, .web-field {
+    -fx-background-color: #414141;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+#current-new-color-border, .color-rect-border, .color-bar {
+    -fx-border-width: 0;
+}
+
+#color-picker .label {
+    -fx-text-fill: white;
+}
+
+
+#color-picker .toggle-button {
+    -fx-background-color: #515151;
+    -fx-text-fill: #c1c1c1;
+    -fx-border-insets: 3;
+}
+
+#color-picker .toggle-button:selected {
+    -fx-text-fill: white;
+}
+
+#color-picker .button {
+    -fx-background-color: #515151;
+    -fx-text-fill: white;
+    -fx-border-insets: 3;
+    -fx-label-padding: 5px;
+}
+
+.slider > .track {
+    -fx-background-color: #5c5c5c;
+}
+
+.slider > .thumb {
+    -fx-background-color: #747474;
+}
